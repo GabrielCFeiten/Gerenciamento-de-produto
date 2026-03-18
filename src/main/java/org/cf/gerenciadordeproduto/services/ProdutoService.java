@@ -42,5 +42,8 @@ public class ProdutoService {
         return null;
     }
 
+    public ProdutoModel findById(Long id) {
+        return produtoRepository.findById(id).orElse(null);
+    }
 
 }

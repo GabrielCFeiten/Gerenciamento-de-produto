@@ -45,4 +45,16 @@ public class ProdutoController {
         ProdutoModel request = produtoService.update(id, produto);
         return ResponseEntity.ok().body(request);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProdutoModel> findById(@PathVariable Long id) {
+        ProdutoModel request = produtoService.findById(id);
+
+        if (request != null) {
+            return ResponseEntity.ok(request);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
